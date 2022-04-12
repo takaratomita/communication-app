@@ -1,0 +1,36 @@
+.create-btn {
+    display: none;
+    position: fixed;
+    z-index: 300;
+    right: 20px;
+    bottom: 15%;
+    width: 70px;
+    height: 70px;
+    @include mq() {
+        display: block;
+        right: 50px;
+        bottom: 15%;
+      }
+    span {
+        display: block;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: $black;
+        color: $white;
+        cursor: pointer;
+        position: relative;
+        transition: all ease .3s;
+        &:hover {
+            background: $white;
+            color: $black;
+        }
+        i {
+            position: absolute;
+            font-size: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

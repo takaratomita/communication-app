@@ -1,0 +1,142 @@
+.mainv, .archive {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    &.active {
+        display: flex;
+    }
+    .pickup-slider {
+        display: none;
+        text-align: center;
+        overflow: hidden;
+        width: 100%;
+        @include mq() {
+            display: block;
+            width: 49vw;
+            height: 48vh;
+          }
+        img {
+            object-fit: cover;
+            object-position: top;
+            width: 100%;
+            @include mq() {
+                width: 49vw;
+                height: 35vh;
+              }
+        }
+        .slide-txt {
+            padding: 20px;
+        }
+    }
+    .slider-side {
+        justify-content: center;
+        @include mq() {
+            justify-content: flex-start;
+            flex-direction: row-reverse;
+          }
+        .content{
+            width: 90%;
+            margin: 0 auto;
+            @include mq() {
+                margin: 0;
+                width: 49vw;
+            }
+            &:nth-child(even) .content-inner{
+                width: 100%;
+                @include mq() {
+                        flex-direction: row-reverse;
+                      }
+            }
+        }
+    }
+    .content {
+        width: 90%;
+        @include mq() {
+            width: 49vw;
+            height: 24vh;
+          }
+        .content-inner {
+            display: flex;
+            border-bottom: 1px solid $lightgray;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            @include mq() {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+
+            }
+            .content-img {
+                width: 35%;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                @include mq() {
+                    display: block;
+                    width: 25vw;
+                  }
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    display: block;
+                    transform: scale(1.5);
+                    transition: transform .5s .3s ease;
+                    object-position: top;
+                    @include mq() {
+                        transform: scale(1.0);
+                        width: 25vw;
+                        height: 24vh;
+                      }
+                }
+            }
+            .content-txt {
+                width: 65%;
+                padding: 5px;
+                box-sizing: border-box;
+                position: relative;
+                @include mq() {
+                    padding: 20px;
+                }
+                @include mq() {
+                    width: 25vw;
+                  }
+                  h3, p {
+                      margin-bottom: 3px;
+                      @include mq() {
+                          margin-bottom: 15px;
+                      }
+                  }
+                .category span {
+                    background: $black;
+                    color: $white;
+                    padding: 2px 6px;
+                    border-radius: 20px;
+                    margin-left: 5px;
+                    @include mq() {
+                        padding: 3px 8px;
+                    }
+                }
+                .posted {
+                    margin-top: auto;
+                    font-size: 8px;
+                    color: $lightgray;
+                    text-align: right;
+                }
+            }
+        }
+        a:hover img {
+            transform: scale(1.1) !important;
+        }
+    }
+    .mainv-bottom {
+        display: flex;
+        width: 100vw;
+        flex-wrap: wrap;
+        justify-content: center;
+        .content:nth-child(4n) .content-inner, .content:nth-child(4n -1) .content-inner {
+            @include mq() {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+}

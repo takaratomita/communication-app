@@ -1,0 +1,96 @@
+.single {
+    display: none;
+    &.active {
+        display: block;
+    }
+    .single-upper__cont {
+        .single-upper__inner {
+            margin: 0 auto;
+            @include mq() {
+                width: 1000px;
+            }
+            .single-img {
+                text-align: center;
+                margin-bottom: 30px;
+                img {
+                    width: 100%;
+                    @include mq() {
+                        width: 1000px;
+                    }
+                }
+            }
+            .single-text {
+                width: 50%;
+                h2 {
+                    margin-bottom: 20px;
+                }
+            }
+            .text-area {
+                padding-bottom: 100px;
+                p {
+                    margin-top: 20px;
+                    &:nth-child(even) {
+                        text-align: right;
+                    }
+                    span {
+                        display: inline-block;
+                        padding: 10px;
+                        background: $lightgray;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+    .single-bottom__cont {
+        width: 100%;
+        background: $white;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        bottom: 40px;
+        @include mq() {
+            bottom: 0;
+        }
+        .single-bottom__inner {
+            margin: 0 auto;
+            padding: 5px 0;
+            @include mq() {
+                width: 1000px;
+            }
+            .single-form {
+                text-align: center;
+                @include mq() {
+                    margin-bottom: 30px;
+                }
+                input[type="text"] {
+                    border: 1px solid $black;
+                    border-radius: 5px;
+                    padding: 10px;
+                    width: 70%;
+                    @include mq() {
+                        width: 900px;
+                    }
+                    &:focus {
+                        background: $lightgray;
+                    }
+                }
+                input[type="submit"] {
+                    border: 1px solid $black;
+                    background: $white;
+                    color: $black;
+                    border-radius: 50%;
+                    padding: 10px 15px;
+                    transition: all ease 0.3s;
+                    @include mq() {
+                    }
+                    &:hover {
+                        border: 1px solid $black;
+                        background: $black;
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

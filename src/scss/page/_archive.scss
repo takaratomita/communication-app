@@ -1,0 +1,13 @@
+.archive {
+    display: none;
+    width: 100vw;
+    flex-wrap: wrap;
+    .content:nth-child(4n) .content-inner, .content:nth-child(4n -1) .content-inner {
+        @include mq() {
+            flex-direction: row-reverse;
+        }
+    }
+    &.active {
+        display: flex;
+    }
+}

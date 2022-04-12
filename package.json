@@ -1,0 +1,40 @@
+{
+  "name": "communication-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "postcss.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css:sass": "node-sass src/scss/style.scss --importer node_modules/node-sass-globbing/index.js dist/css/style.css --output-style compressed",
+    "css:postcss": "postcss dist/css/style.css -u autoprefixer -o dist/css/style.css -c=postcss.config.js",
+    "css": "npm-run-all -s css:*",
+    "js:ts": "tsc",
+    "js": "npm-run-all -s js:*",
+    "pug": "pug --out dist --basedir src/pug --pretty src/pug",
+    "watch:server": "browser-sync start --config bs-config.js",
+    "watch:pug": "chokidar \"src/pug\" -c \"npm run pug\" --initial",
+    "watch:css": "chokidar \"src/scss\" -c \"npm run css\" --initial",
+    "watch:js": "chokidar \"src/ts\" -c \"npm run js\" --initial",
+    "start": "npm-run-all -p watch:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "browser-sync": "^2.27.3",
+    "chokidar-cli": "^2.1.0",
+    "node-sass": "^6.0.1",
+    "node-sass-globbing": "0.0.23",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "pug-cli": "github:pugjs/pug-cli#master",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "npm-watch": "^0.11.0"
+  }
+}

@@ -1,0 +1,68 @@
+extends layout/_layout.pug
+
+block title 
+    title コミュニケーションアプリ
+
+block main
+
+    //- トップページのレイアウト
+    .mainv.active#mainv
+        .pickup-slider
+            .slide#slide
+                a(href="#") 
+                    .slide-image
+                        img(src="", alt="") 
+                    .slide-txt
+                        h3 タイトルが入ります。
+                        p.category
+                            span 
+                        p.body テキストが入ります。テキストが入ります。テキストが入ります。
+                        p.posted 
+                            span 
+        .slider-side 
+            - for (var x = 0; x < 2; x++)
+                .content 
+                    a(href="#", rel="tag")
+                        .content-inner
+                            .content-img
+                                img(src="", alt="")
+                            .content-txt
+                                h3 タイトルが入ります。
+                                p.category
+                                p.body テキストが入ります。テキストが入ります。テキストが入ります。
+                                p.posted 
+        .mainv-bottom 
+            - for (var x = 0; x < 10; x++)
+                .content 
+                    a(href="#", rel="tag")
+                        .content-inner
+                            .content-img
+                                img(src="", alt="")
+                            .content-txt
+                                h3 タイトルが入ります。
+                                p.category
+                                p.body テキストが入ります。テキストが入ります。テキストが入ります。
+                                p.posted 
+
+    //- シングルページのレイアウト
+    .single#single
+        .container 
+            .single-upper__cont 
+                .single-upper__inner 
+                    .single-img 
+                        img(src="", alt="")
+                    .single-txt 
+                        h2 
+                        p 
+                    .text-area#text-area
+            .single-bottom__cont
+                .single-bottom__inner 
+                    .single-form
+                        form(action="", id="single-form")
+                            input(type="text", id="single-form-txt")
+                            input(type="submit", value=">") 
+    
+    //- アーカイブページ
+    #category.archive
+
+    #search.archive

@@ -1,0 +1,104 @@
+ <?php require('./app/app.php'); ?>
+
+doctype
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.1/css/all.css')
+    block title 
+
+  body
+    header
+      .container
+        .header-inner 
+          ul.gnav
+            - var gnavList = { Home:{name:'ホーム',url:'/'}, category:{name:'カテゴリー',url:'/category/'}, contact:{name:'お問い合わせ',url:'/contact/'} }
+              each value, key in gnavList
+                li(class=key)
+                  a(href=value.url) #{value.name}
+                    span #{key}
+                  if key == 'category'
+                    .category-hov 
+                      .category-hov-inner 
+                        ul
+                          - var categoryList = ['文系', '理系', '法学', '経済学', '文学', '人文学', '教育学', '語学', '理学', '工学', '農学', '医学', '薬学', '歯学', '看護学', '情報工学', 'その他']
+                            each value in categoryList 
+                              li 
+                                a(href=`?category=${value}` ) #{value}
+          ul.gnav-sp
+            - var gnavList = { Home:'i class="fas fa-home"', category:'i class="fas fa-outdent"', create:'i class="fas fa-pen-alt create-btn_sp"',  mail:'i class="far fa-envelope"'}
+              each value, key in gnavList
+                li 
+                  if key == 'Home'
+                    a(href='/')
+                      #{value}
+                  else 
+                    a(href=key)
+                      #{value}
+                  if key == 'category'
+                    .category-hov_sp 
+                      .category-hov-inner 
+                        ul
+                          - var categoryList = ['文系', '理系', '法学', '経済学', '文学', '人文学', '教育学', '語学', '理学', '工学', '農学', '医学', '薬学', '歯学', '看護学', '情報工学', 'その他']
+                            each value in categoryList 
+                              li 
+                                a(href=`?category=${value}` ) #{value}
+          .search
+            .search-inner 
+              input(type='text' name='search')
+              i.fas.fa-search
+
+    main
+      block main  
+
+    aside 
+      .create-btn#create-btn 
+        span 
+          i.fas.fa-pen-alt
+      .create-form
+        //- form(action="./app/app.php" method="post" id="create-form") 
+        form(action="" method="post" id="create-form") 
+          .create-form_inner 
+            div#create-form 
+              input(type="text" name="title" placeholder="レポートのタイトルを入力")
+              p 
+                - var categoryList = ['文系', '理系', '法学', '経済学', '文学', '人文学', '教育学', '語学', '理学', '工学', '農学', '医学', '薬学', '歯学', '看護学', '情報工学', 'その他']
+                each value in categoryList
+                  label 
+                    input(type="checkbox", name="category[]", value=value)
+                    span #{value}
+              textarea(name="body", cols="30", rows="10")
+              //- input(type="file" name="img")
+              p.submit-btn 
+                input(type="submit", value="作成", id="create-form__btn") 
+
+    footer 
+      p Copyright © 2021 1F10190371 Takara Tomita. All Rights Reserved.
+    
+    script(src='https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js')
+    script(type="text/javascript" src='/js/vue.js')
+    //- script(type="text/javascript").
+    //-   {
+
+    //-     const array = [];
+    //-     const reports = {
+    //-     reports: [
+    //-     <?php global $results, $postedTitle, $postedBody, $postedCategory; ?>
+    //-     <?php foreach($results as $result):?>
+    //-     [
+    //-       <?= $result['title']; ?>,
+    //-       <?= $result['category'] ?>,
+    //-       <?= $result['body'] ?>,
+    //-       <?= $result['posted'] ?>,
+    //-     ]
+    //-     <?php endforeach;?>
+    //-     ]};
+    //-     let setjson = JSON.stringify(reports);
+    //-     localStorage.setItem('reports', setjson);
+    //-   }
+    script(type="text/javascript" src='/js/index.js')
+    
+      

@@ -1,0 +1,71 @@
+.category-hov, .category-hov_sp {
+    display: none;
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    width: 100%;
+    opacity: 0;
+    background: rgba(255, 255, 255, .7);
+        @include mq() {
+        left: 0;
+        top: 65px;
+        width: 500px;
+        height: 200px;
+    }
+    &.active {
+        display: block;
+        animation: fadeIn ease 0.3s 1 normal;
+        opacity: 1;
+    }
+    .category-hov-inner {
+        padding: 20px;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            li {
+                list-style: none;
+                width: 25%;
+                &:first-of-type, &:nth-of-type(2) {
+                    width: 50%;
+                }
+                &:last-of-type {
+                    width: 100%;
+                    order: 8;
+                }
+                &:nth-of-type(3), &:nth-of-type(4) {
+                    order: 1;
+                }
+                &:nth-of-type(9), &:nth-of-type(10){
+                    order: 2;
+                }
+                &:nth-of-type(5), &:nth-of-type(6) {
+                    order: 3;
+                }
+                &:nth-of-type(11), &:nth-of-type(12) {
+                    order: 4;
+                }
+                &:nth-of-type(7), &:nth-of-type(8) {
+                    order: 5;
+                }
+                &:nth-of-type(13), &:nth-of-type(14) {
+                    order: 6;
+                }
+                &:nth-of-type(15), &:nth-of-type(16) {
+                    order: 7;
+                }
+                &:nth-of-type(15) {
+                    margin-left: auto;
+                }
+                a {
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+.gnav .category:hover .category-hov {
+    display: block;
+    animation: fadeIn ease 0.3s 1 normal;
+    opacity: 1;
+}
