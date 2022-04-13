@@ -2,3 +2,4 @@ node_modules/
 dist/
 Procfile
 src/scss/base/_reset_.scss
+src/scss/base/_reset.scss
